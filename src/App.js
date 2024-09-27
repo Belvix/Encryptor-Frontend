@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IndexPage from './components/IndexPage';
 import Encryptor from './components/Encryptor';
 import Decryptor from './components/Decryptor';
-import './App.css'; 
+import './App.css';
 
 function App() {
   return (

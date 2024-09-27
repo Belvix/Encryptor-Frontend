@@ -19,6 +19,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+.options-container {
+  display: flex;
+  gap: 40px; /* Adds space between Encrypt and Decrypt buttons */
+  margin-top: 30px;
 }
 
 h1 {
@@ -57,7 +64,38 @@ button:hover {
   transform: scale(1.05);
 }
 
-#uploadedFileArea {
+.go-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.canvas-container {
+  position: relative;
+  width: 800px;
+  height: 400px;
+}
+
+.canvas-clear-button,
+.canvas-save-button {
+  position: absolute;
+  bottom: 10px;
+  padding: 10px;
+}
+
+.canvas-clear-button {
+  right: 10px;
+}
+
+.canvas-save-button {
+  right: 120px;
+}
+
+#uploadedFileArea,
+#encryptedFileArea,
+#decryptedFileArea {
   width: 100%;
   max-width: 800px;
   margin: 20px 0;
@@ -70,39 +108,8 @@ button:hover {
   font-size: 14px;
 }
 
-#uploadedFileArea p {
+#uploadedFileArea p,
+#encryptedFileArea p,
+#decryptedFileArea p {
   margin: 0;
-}
-
-#decryptButton {
-  margin-bottom: 12px;
-}
-
-#downloadButton {
-  margin-bottom: 0;
-}
-
-.options-container {
-  display: flex;
-  gap: 40px;
-  margin-top: 30px;
-}
-
-.options-container button {
-  width: 200px;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  button {
-    padding: 10px 20px;
-  }
-
-  .options-container {
-    flex-direction: column;
-    gap: 20px;
-  }
 }

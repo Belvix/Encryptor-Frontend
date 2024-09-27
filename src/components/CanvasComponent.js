@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 const CanvasComponent = ({ width, height }) => {
   const canvasRef = useRef(null);
+  const [isDrawing, setIsDrawing] = useState(false);
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current;
@@ -12,20 +13,19 @@ const CanvasComponent = ({ width, height }) => {
 
     context.beginPath();
     context.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+    setIsDrawing(true);
+  };
 
-    const draw = (event) => {
-      context.lineTo(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
-      context.stroke();
-    };
+  const draw = (e) => {
+    if (!isDrawing) return;
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+    context.stroke();
+  };
 
-    canvas.addEventListener('mousemove', draw);
-
-    const stopDrawing = () => {
-      canvas.removeEventListener('mousemove', draw);
-      canvas.removeEventListener('mouseup', stopDrawing);
-    };
-
-    canvas.addEventListener('mouseup', stopDrawing);
+  const stopDrawing = () => {
+    setIsDrawing(false);
   };
 
   const clearCanvas = () => {
@@ -51,6 +51,9 @@ const CanvasComponent = ({ width, height }) => {
         height={height}
         style={{ border: '1px solid #ddd', backgroundColor: '#e0e0e0', borderRadius: '8px', marginBottom: '25px' }}
         onMouseDown={startDrawing}
+        onMouseMove={draw}
+        onMouseUp={stopDrawing}
+        onMouseLeave={stopDrawing}
       />
       <button onClick={clearCanvas} style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
         Clear Canvas
