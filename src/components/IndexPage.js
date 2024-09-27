@@ -7,10 +7,10 @@ const IndexPage = () => {
     <div className="page-container">
       <h1>Welcome</h1>
       <div className="options-container">
-        <Link to="/encryptor"> {/* Corrected the path */}
+        <Link to="/encryptor"> 
           <button>Encrypt</button>
         </Link>
-        <Link to="/decryptor"> {/* Corrected the path */}
+        <Link to="/decryptor"> 
           <button>Decrypt</button>
         </Link>
       </div>
