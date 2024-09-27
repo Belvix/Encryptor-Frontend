@@ -18,7 +18,8 @@ const Encryptor = () => {
         <input type="file" />
       </div>
       <button>Encrypt</button>
-      <button onClick={handleClearCanvas}>Clear Canvas</button>
+      <button onClick={handleClearCanvas}>Clear Canvas</button>  {/* Added Clear Canvas button */}
+      <button>Download Encrypted File</button>
     </div>
   );
 };

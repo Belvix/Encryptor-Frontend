@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './styles.css';
+import './styles.css'; 
 
 const IndexPage = () => {
   return (
     <div className="page-container">
       <h1>Welcome</h1>
       <div className="options-container">
-        <Link to="/encrypt">
+        <Link to="/encryptor">  
           <button>Encrypt</button>
         </Link>
-        <Link to="/decrypt">
+        <Link to="/decryptor"> 
           <button>Decrypt</button>
         </Link>
       </div>

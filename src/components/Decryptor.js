@@ -18,7 +18,7 @@ const Decryptor = () => {
         <input type="file" />
       </div>
       <button>Decrypt</button>
-      <button onClick={handleClearCanvas}>Clear Canvas</button>
+      <button onClick={handleClearCanvas}>Clear Canvas</button>  {/* Clear Canvas button */}
       <button>Download Decrypted File</button>
     </div>
   );

@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IndexPage from './components/IndexPage';
@@ -12,8 +11,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<IndexPage />} />
-          <Route path="/encrypt" element={<Encryptor />} />
-          <Route path="/decrypt" element={<Decryptor />} />
+          <Route path="/encryptor" element={<Encryptor />} />
+          <Route path="/decryptor" element={<Decryptor />} />
         </Routes>
       </div>
     </Router>
