@@ -24,7 +24,7 @@ body {
 
 .options-container {
   display: flex;
-  gap: 40px; /* Adds space between Encrypt and Decrypt buttons */
+  gap: 40px; 
   margin-top: 30px;
 }
 

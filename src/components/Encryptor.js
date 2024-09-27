@@ -5,14 +5,12 @@ import './styles.css';
 const Encryptor = () => {
   const canvasRef = useRef(null);
 
-  // Handle clearing the canvas
   const handleClearCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-  // Handle saving the drawing
   const handleSaveCanvas = () => {
     const canvas = canvasRef.current;
     const dataURL = canvas.toDataURL('image/png');
@@ -24,12 +22,10 @@ const Encryptor = () => {
 
   return (
     <div className="page-container">
-      {/* Go Back Button */}
       <Link to="/" className="go-back-button">{'<'} Go Back</Link>
 
       <h1>Encryptor</h1>
 
-      {/* Canvas for drawing */}
       <div className="canvas-container">
         <canvas ref={canvasRef} width={800} height={400} className="canvas" />
         <button onClick={handleClearCanvas} className="canvas-clear-button">
@@ -40,22 +36,18 @@ const Encryptor = () => {
         </button>
       </div>
 
-      {/* File upload section */}
       <div id="uploadedFileArea">
         <h4>Upload File</h4>
         <input type="file" />
       </div>
 
-      {/* Encrypt Button */}
       <button>Encrypt</button>
 
-      {/* Encrypted File section */}
       <div id="encryptedFileArea">
         <h4>Encrypted File</h4>
         <input type="file" />
       </div>
 
-      {/* Download Encrypted File Button */}
       <button>Download Encrypted File</button>
     </div>
   );
