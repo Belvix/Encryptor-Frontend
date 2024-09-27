@@ -1,20 +1,23 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from './components/HomePage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import IndexPage from './components/IndexPage';
 import Encryptor from './components/Encryptor';
 import Decryptor from './components/Decryptor';
-import './styles.css';
+import './App.css';
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/encryptor" component={Encryptor} />
-        <Route path="/decryptor" component={Decryptor} />
-      </Switch>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/encrypt" element={<Encryptor />} />
+          <Route path="/decrypt" element={<Decryptor />} />
+        </Routes>
+      </div>
     </Router>
   );
-};
+}
 
 export default App;

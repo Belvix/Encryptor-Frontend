@@ -1,25 +1,24 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import CanvasComponent from './CanvasComponent';
-import FileSection from './FileSection';
+import React, { useRef } from 'react';
+import './styles.css';
 
 const Encryptor = () => {
-  const history = useHistory();
+  const canvasRef = useRef(null);
 
-  const goBack = () => {
-    history.push('/');
+  const handleClearCanvas = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   return (
     <div className="page-container">
-      <button onClick={goBack} style={{ position: 'absolute', top: '20px', left: '20px' }}>
-        ← Go Back
-      </button>
       <h1>Encryptor</h1>
-      <CanvasComponent width={800} height={400} />
-      <FileSection sectionTitle="Upload File to Encrypt" />
-      <FileSection sectionTitle="Encrypted File" />
-      <button style={{ marginTop: '20px' }}>Download Encrypted File</button>
+      <canvas ref={canvasRef} width={800} height={400} className="canvas"></canvas>
+      <div id="uploadedFileArea">
+        <input type="file" />
+      </div>
+      <button>Encrypt</button>
+      <button onClick={handleClearCanvas}>Clear Canvas</button>
     </div>
   );
 };
