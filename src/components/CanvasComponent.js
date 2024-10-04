@@ -58,7 +58,7 @@ const CanvasComponent = ({ width, height }) => {
       <button onClick={clearCanvas} style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
         Clear Canvas
       </button>
-      <button onClick={saveCanvas} style={{ position: 'absolute', bottom: '10px', right: '110px' }}>
+      <button onClick={saveCanvas} style={{ position: 'absolute', bottom: '10px', right: '170px' }}>
         Save
       </button>
     </div>

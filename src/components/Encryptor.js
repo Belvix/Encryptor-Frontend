@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import './CanvasComponent'
+import CanvasComponent from './CanvasComponent';
 
 const Encryptor = () => {
   const canvasRef = useRef(null);
@@ -27,13 +29,7 @@ const Encryptor = () => {
       <h1>Encryptor</h1>
 
       <div className="canvas-container">
-        <canvas ref={canvasRef} width={800} height={400} className="canvas" />
-        <button onClick={handleClearCanvas} className="canvas-clear-button">
-          Clear Canvas
-        </button>
-        <button onClick={handleSaveCanvas} className="canvas-save-button">
-          Save Drawing
-        </button>
+        <CanvasComponent ref={canvasRef} width={800} height={400} className="canvas" />
       </div>
 
       <div id="uploadedFileArea">
@@ -45,7 +41,7 @@ const Encryptor = () => {
 
       <div id="encryptedFileArea">
         <h4>Encrypted File</h4>
-        <input type="file" />
+        {/* <input type="file" /> */}
       </div>
 
       <button>Download Encrypted File</button>
