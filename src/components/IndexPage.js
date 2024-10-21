@@ -4,7 +4,7 @@ import './styles.css';
 
 const IndexPage = () => {
   return (
-    <div className="page-container">
+    <div className="page-container index-page-container">
       <h1>Welcome</h1>
       <div className="options-container">
         <Link to="/encryptor"> 
