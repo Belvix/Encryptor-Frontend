@@ -6,25 +6,10 @@ import CanvasComponent from './CanvasComponent';
 
 const Decryptor = () => {
   const canvasRef = useRef(null);
-
-  // const handleClearCanvas = () => {
-  //   const canvas = canvasRef.current;
-  //   const ctx = canvas.getContext('2d');
-  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // };
-
-  // const handleSaveCanvas = () => {
-  //   const canvas = canvasRef.current;
-  //   const dataURL = canvas.toDataURL('image/png');
-  //   const link = document.createElement('a');
-  //   link.href = dataURL;
-  //   link.download = 'canvas-drawing.png';
-  //   link.click();
-  // };
-
   return (
     <div className="page-container">
       <Link to="/" className="go-back-button">{'<'} Go Back</Link>
+      <button>Go Back</button>
 
       <h1>Decryptor</h1>
 

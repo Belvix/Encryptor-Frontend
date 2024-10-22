@@ -36,10 +36,14 @@ const CanvasComponent = ({ width, height }) => {
 
   const saveCanvas = () => {
     const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    context.globalCompositeOperation = 'destination-over';
+    context.fillStyle = 'white';
+    context.fillRect(0, 0, canvas.width, canvas.height);
     const dataURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'canvas-drawing.png';
+    link.download = 'canvas-drawing.jpg';
     link.click();
   };
 
@@ -49,7 +53,7 @@ const CanvasComponent = ({ width, height }) => {
         ref={canvasRef}
         width={width}
         height={height}
-        style={{ border: '1px solid #ddd', backgroundColor: '#e0e0e0', borderRadius: '8px', marginBottom: '25px' }}
+        style={{ border: '1px solid #ddd', backgroundColor: '#ffffff', borderRadius: '8px', marginBottom: '25px' }}
         onMouseDown={startDrawing}
         onMouseMove={draw}
         onMouseUp={stopDrawing}
