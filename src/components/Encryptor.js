@@ -8,10 +8,7 @@ const Encryptor = () => {
   const canvasRef = useRef(null);
   return (
     <div className="page-container">
-      {/* <Link to="/" className="go-back-button">{'<'} Go Back</Link> */}
-      <Link to="/" className="go-back-button" style={{ backgroundColor: 'red', border: '2px solid black' }}>
-        {'<'} Go Back
-      </Link>
+      <Link to="/" className="go-back-button">Go Back</Link>
 
       <h1>Encryptor</h1>
 
@@ -28,7 +25,6 @@ const Encryptor = () => {
 
       <div id="encryptedFileArea">
         <h4>Encrypted File</h4>
-        {/* <input type="file" /> */}
       </div>
 
       <button>Download Encrypted File</button>

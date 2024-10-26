@@ -8,8 +8,7 @@ const Decryptor = () => {
   const canvasRef = useRef(null);
   return (
     <div className="page-container">
-      <Link to="/" className="go-back-button">{'<'} Go Back</Link>
-      <button>Go Back</button>
+      <Link to="/" className="go-back-button">Go Back</Link>
 
       <h1>Decryptor</h1>
 
