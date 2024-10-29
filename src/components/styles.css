@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding-top: 130px; 
+  padding-top: 210px; 
 }
 
 .index-page-container {
@@ -78,7 +78,7 @@ button:hover {
 
 .go-back-button {
   position: absolute;
-  top: 16%; 
+  top: 20%; 
   left: 7%;
   text-decoration: none;
   color: rgb(255, 255, 255);
@@ -111,7 +111,7 @@ button:hover {
   right: 120px;
 }
 
-#uploadedFileArea,
+/* #uploadedFileArea,
 #encryptedFileArea,
 #decryptedFileArea {
   width: 100%;
@@ -130,4 +130,46 @@ button:hover {
 #encryptedFileArea p,
 #decryptedFileArea p {
   margin: 0;
+} */
+
+#uploadedFileArea,
+#encryptedFileArea,
+#decryptedFileArea {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid #666;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #dcdcdc;
+  font-size: 14px;
+}
+
+.file-upload-label {
+  display: inline-block;
+  background-color: #444;
+  color: #dcdcdc;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background-color: #666;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-name {
+  margin-top: 10px;
+  font-style: italic;
+  color: #aaa;
 }
