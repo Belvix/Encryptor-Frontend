@@ -34,17 +34,40 @@ const CanvasComponent = ({ width, height }) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-  const saveCanvas = () => {
+  // const saveCanvas = () => {
+  //   const canvas = canvasRef.current;
+  //   const context = canvas.getContext('2d');
+  //   context.globalCompositeOperation = 'destination-over';
+  //   context.fillStyle = 'white';
+  //   context.fillRect(0, 0, canvas.width, canvas.height);
+  //   const dataURL = canvas.toDataURL('image/jpg');
+  //   const link = document.createElement('a');
+  //   link.href = dataURL;
+  //   link.download = 'canvas-drawing.jpg';
+  //   link.click();
+  // };
+
+  const saveCanvas = async () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     context.globalCompositeOperation = 'destination-over';
     context.fillStyle = 'white';
     context.fillRect(0, 0, canvas.width, canvas.height);
-    const dataURL = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-    link.href = dataURL;
-    link.download = 'canvas-drawing.jpg';
-    link.click();
+    const dataURL = canvas.toDataURL('image/jpg');
+    const blob = await (await fetch(dataURL)).blob();
+    const formData = new FormData();
+    formData.append('file', blob, 'canvas-drawing.jpg');
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/upload-image/", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      console.log(data.message); // Log upload success message
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
   };
 
   return (
@@ -63,7 +86,7 @@ const CanvasComponent = ({ width, height }) => {
         Clear Canvas
       </button>
       <button onClick={saveCanvas} style={{ position: 'absolute', bottom: '10px', right: '170px' }}>
-        Save
+        Save to Server
       </button>
     </div>
   );
